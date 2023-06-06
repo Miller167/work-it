@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicia sessió</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}"/>
+    <!-- icheck bootstrap -->
+    <link th:href="@{/plugins/icheck-bootstrap/icheck-bootstrap.min.css}" rel="stylesheet">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/plugins/adminlte/css/adminlte.min.css}"/>
+    <!--  Custom css  -->
+    <link th:href="@{/css/main-app.css}" rel="stylesheet" type="text/css"/>
+
+</head>
+<body class="hold-transition login-page-custom">
+<!-- App Logo -->
+<div class="logo-login">
+    <img th:src="@{/img/logogovern-07.png}" alt="Logo Govern" style="width: 55%;"/>
+</div>
+<!-- /.App Logo -->
+
+<div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-info">
+        <div class="card-header text-center">
+            <h1 class="h1-login">AAN Inspeccions</h1>
+        </div>
+        <div class="card-body">
+            <p class="login-box-msg">Introdueixi el seu usuari i contrasenya</p>
+
+            <form th:action="@{/login}" method="POST">
+                <div class="input-group mb-3">
+                    <input id="username" name="username" type="text" class="form-control"
+                           th:classAppend="${param.error != null ? 'is-invalid' : ''}" placeholder="Usuari">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fa fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input id="password" name="password" type="password" class="form-control"
+                           th:classAppend="${param.error != null ? 'is-invalid' : ''}" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <!-- /.col -->
+                    <div class="col-4"><span class="float-right"></span></div>
+                    <button type="submit" class="btn btn-info-custom btn-block"><span>Accedir</span>
+                    </button>
+                </div>
+
+                <div th:if="${param.error != null}" class="card card-danger mt-3">
+                    <div class="card-header">
+                        <h4 class="card-title" style="text-align:center; float: initial;"> Les dades introduïdes són
+                            incorrectes</h4>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- /.card-body -->
+</div><!-- /.card -->
+
+<!-- /.login-box -->
+<!-- Footer login -->
+<div class="footer-login">
+    <p>@2022, Govern d'Andorra</p>
+    <p style="font-size: 12px; text-align:center;">Versió 1.0.0</p>
+</div>
+<div class="container-fluid-custom">
+    <img th:src="@{/img/wave.svg}" alt="Decoració footer" class="wave-login"/>
+</div>
+<!-- /.Footer login -->
+
+<!-- jQuery -->
+<script th:href="@{/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:href="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:href="@{/plugins/adminlte/js/adminlte.min.js}"></script>
+
+</body>
+</html>

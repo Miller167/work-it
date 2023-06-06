@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!-- HEAD -->
+<head>
+<th:block th:insert="common/fragments/head :: head" />
+</head>
+
+<!-- /.HEAD -->
+<body class="hold-transition layout-top-nav">
+	<div th:replace="common/form :: messages"></div>
+	<!--<body class="hold-transition sidebar-mini sidebar-collapse">-->
+	<div class="wrapper">
+
+		<!-- HEADER -->
+		<header>
+			<div class="header-image" id="header-image">
+				<img th:src="@{/img/header.jpg}" class="img-fluid"
+					alt="Fons de capcelera montanyes d'Andorra">
+				<div class="overlay mt-5">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-3 col-sm-2">
+								<img th:src="@{/img/logo-simplificat-12.svg}" class="rounded"
+									alt="Logo Govern d'Andorra" style="width: 55px">
+							</div>
+							<div class="col-6 col-sm-8 navbar-title-container">
+								<h1 class="text-responsive">ASAE</h1>
+							</div>
+							<div class="col-3 col-sm-2">
+								<h6>
+									<a th:href="@{/logout}" href="/logout" role="button"><i
+										class="fas fa-sign-out-alt"></i><span>Tancar sessió</span></a>
+								</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- /HEADER -->
+		<!-- Navbar -->
+		<nav
+			class=" main-header navbar navbar-expand navbar-white navbar-light "
+			style="margin-left: 0px;">
+			<!-- Left navbar links -->
+			<ul class="navbar-nav mb-1 mt-1 col-11">
+				<li class="nav-item d-none d-sm-inline-block"><a
+					th:href="@{/secure/bopa}" class="nav-link"> <i
+						class="fa fa-book"></i><span th:text="Bopa"></span>
+				</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a
+					th:href="@{/secure/normativa}" class="nav-link"> <i
+						class="fa fa-book"></i><span th:text="Normatives"></span>
+				</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a
+					th:href="@{/secure/guiaPunt}" class="nav-link"> <i
+						class="fa fa-book"></i><span th:text="Guia"></span>
+				</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a
+					th:href="@{/secure/questionarisRisc}" class="nav-link"> <i
+						class="nav-icon fa fa-question"></i><span
+						th:utext="'Questionaris de risc'"></span>
+				</a></li>
+				<li class="nav-item d-none d-sm-inline-block"><a
+					th:href="@{/secure/inspectorCodi}" class="nav-link"> <i
+						class="nav-icon fa fa-user"></i><span
+						th:utext="'Inspectors'"></span>
+				</a></li>
+			</ul>
+
+		</nav>
+
+		<!-- MAIN CONTENT -->
+		<div layout:fragment="content" class="content-wrapper"></div>
+		<!-- /.MAIN CONTENT -->
+
+		<!-- FOOTER -->
+		<div th:replace="common/fragments/footer :: footer"></div>
+		<!-- /.FOOTER -->
+
+	</div>
+	<!-- /.wrapper -->
+
+	<!-- SCRIPTS-->
+	<div th:replace="common/fragments/scripts :: scripts"></div>
+	<!-- /.SCRIPTS-->
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+</head>
+<body>
+<div th:fragment="messages" id="modalMessages">
+    <script th:if="${MessageSuccess}" th:inline="javascript">
+        var message = /*[[${MessageSuccess}]]*/;
+        toastr.success('', message);
+    </script>
+    <script th:if="${MessageWarning}" th:inline="javascript">
+        var message = /*[[${MessageWarning}]]*/;
+        toastr.warning('', message);
+    </script>
+    <script th:if="${MessageError}" th:inline="javascript">
+        var message = /*[[${MessageError}]]*/;
+        toastr.error('', message);
+    </script>
+</div>
+</body>
+</html>
