@@ -1,8 +1,8 @@
-package ad.uda.tprats.workit.workitapi.config;
+package ad.uda.tprats.workitapi.config;
 
-import ad.uda.tprats.workit.workitapi.helpers.CustomErrorException;
-import ad.uda.tprats.workit.workitapi.helpers.ErrorResponse;
-import ad.uda.tprats.workit.workitapi.helpers.ValidationErrorResponse;
+import ad.uda.tprats.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitapi.helpers.ErrorResponse;
+import ad.uda.tprats.workitapi.helpers.ValidationErrorResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;

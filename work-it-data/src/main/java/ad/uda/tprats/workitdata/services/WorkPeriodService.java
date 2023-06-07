@@ -1,15 +1,10 @@
 package ad.uda.tprats.workitdata.services;
 
-import ad.uda.tprats.workitdata.entities.Area;
-import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.entities.WorkPeriod;
-import ad.uda.tprats.workitdata.repositories.ShiftRepository;
 import ad.uda.tprats.workitdata.repositories.WorkPeriodRepository;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service

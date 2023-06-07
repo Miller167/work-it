@@ -1,8 +1,10 @@
-package ad.uda.tprats.workit.workitapi.controllers;
+package ad.uda.tprats.workitapi.controllers;
 
-import ad.uda.tprats.workit.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.services.TodoService;
 import ad.uda.tprats.workitdata.entities.Todo;
+import ad.uda.tprats.workitdata.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,8 @@ public class TodoController {
 
     @Autowired
     private TodoService todoService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping()
     public List<Todo> getAllTodos() {
@@ -30,6 +34,19 @@ public class TodoController {
     public Todo getTodoById(@PathVariable Long todoId) {
         try {
             return todoService.getTodoById(todoId);
+        } catch (CustomErrorException e) {
+            throw new CustomErrorException(e.getMessage());
+        }
+    }
+
+    @GetMapping("/userId/{userId}")
+    public List<Todo> getTodoByUserId(@PathVariable Long userId) {
+        try {
+            User user = userService.getUserById(userId);
+            if (user == null) {
+                throw new CustomErrorException("Todo does not exist");
+            }
+            return todoService.getTodosByUser(user);
         } catch (CustomErrorException e) {
             throw new CustomErrorException(e.getMessage());
         }

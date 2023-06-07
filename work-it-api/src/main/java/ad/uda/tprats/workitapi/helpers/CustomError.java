@@ -1,4 +1,4 @@
-package ad.uda.tprats.workit.workitapi.helpers;
+package ad.uda.tprats.workitapi.helpers;
 
 public enum CustomError {
     // Apis

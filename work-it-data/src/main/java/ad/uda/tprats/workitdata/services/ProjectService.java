@@ -29,6 +29,10 @@ public class ProjectService {
         return projectRepository.getById(projectId);
     }
 
+    public List<Project> getProjectsByUser(User user) {
+        return projectRepository.getProjectsByCollaboratorsContaining(user);
+    }
+
     // READ
     public Project getProjectByTitle(String title) {
         return projectRepository.getProjectByTitle(title);

@@ -5,7 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class Shift {
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnoreProperties("shifts")
-    @NotNull(message = "User is mandatory")
+    //@NotNull(message = "User is mandatory")
     private User user;
 
 }

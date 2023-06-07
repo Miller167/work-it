@@ -1,7 +1,6 @@
 package ad.uda.tprats.workitdata.services;
 
 import ad.uda.tprats.workitdata.entities.Area;
-import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.repositories.AreaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

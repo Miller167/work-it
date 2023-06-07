@@ -1,6 +1,6 @@
-package ad.uda.tprats.workit.workitapi.controllers;
+package ad.uda.tprats.workitapi.controllers;
 
-import ad.uda.tprats.workit.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitapi.helpers.CustomErrorException;
 import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.services.ShiftService;
 import ad.uda.tprats.workitdata.entities.Shift;
@@ -71,7 +71,7 @@ public class ShiftController {
         }
     }
 
-    @GetMapping("/request/{userId}")
+   /* @GetMapping("/request/{userId}")
     public String requestShift(@PathVariable Long userId) {
         try {
             User user = userService.getUserById(userId);
@@ -79,6 +79,20 @@ public class ShiftController {
                 throw new CustomErrorException("User does not exist");
             }
             return shiftService.requestShift(user);
+        } catch (CustomErrorException e) {
+            throw new CustomErrorException(e.getMessage());
+        }
+    }*/
+
+    @GetMapping("/request/{userId}")
+    public ResponseEntity<?> request(@PathVariable Long userId) {
+        try {
+            User user = userService.getUserById(userId);
+            if (user == null) {
+                throw new CustomErrorException("User does not exist");
+            }
+            shiftService.request(user);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (CustomErrorException e) {
             throw new CustomErrorException(e.getMessage());
         }

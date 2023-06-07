@@ -1,4 +1,4 @@
-package ad.uda.tprats.workit.workitapi.controllers;
+package ad.uda.tprats.workitapi.controllers;
 
 import java.io.IOException;
 

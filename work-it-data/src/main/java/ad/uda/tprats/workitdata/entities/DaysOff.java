@@ -1,13 +1,12 @@
 package ad.uda.tprats.workitdata.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "days_off")
@@ -32,6 +31,7 @@ public class DaysOff {
     @ManyToOne
     @JoinColumn(name = "user_id")
     @NotNull(message = "User is mandatory")
-    @JsonIgnoreProperties("daysOffDone")
+    //@JsonIgnoreProperties("daysOffDone")
+    @JsonIgnore
     private User user;
 }

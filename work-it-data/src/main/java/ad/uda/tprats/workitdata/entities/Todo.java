@@ -1,11 +1,11 @@
 package ad.uda.tprats.workitdata.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -31,6 +31,7 @@ public class Todo {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     //@NotNull(message = "User is mandatory")
     private User user;
 

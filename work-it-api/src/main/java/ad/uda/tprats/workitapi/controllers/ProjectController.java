@@ -1,9 +1,10 @@
-package ad.uda.tprats.workit.workitapi.controllers;
+package ad.uda.tprats.workitapi.controllers;
 
-import ad.uda.tprats.workit.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitapi.helpers.CustomErrorException;
 import ad.uda.tprats.workitdata.entities.Project;
 import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.services.ProjectService;
+import ad.uda.tprats.workitdata.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +18,26 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping()
     public List<Project> getAllProjects(){
         try {
             return projectService.getProjects();
+        } catch (CustomErrorException e) {
+            throw new CustomErrorException(e.getMessage());
+        }
+    }
+
+    @GetMapping("/userId/{userId}")
+    public List<Project> getProjectByUser(@PathVariable Long userId){
+        try {
+            User user = userService.getUserById(userId);
+            if (user == null) {
+                throw new CustomErrorException("User does not exist");
+            }
+            return projectService.getProjectsByUser(user);
         } catch (CustomErrorException e) {
             throw new CustomErrorException(e.getMessage());
         }

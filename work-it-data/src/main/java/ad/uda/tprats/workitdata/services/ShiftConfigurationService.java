@@ -1,6 +1,5 @@
 package ad.uda.tprats.workitdata.services;
 
-import ad.uda.tprats.workitdata.entities.Area;
 import ad.uda.tprats.workitdata.entities.ShiftConfiguration;
 import ad.uda.tprats.workitdata.repositories.ShiftConfigurationRepository;
 import org.springframework.beans.factory.annotation.Autowired;

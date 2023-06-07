@@ -1,6 +1,6 @@
-package ad.uda.tprats.workit.workitapi.controllers;
+package ad.uda.tprats.workitapi.controllers;
 
-import ad.uda.tprats.workit.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitapi.helpers.CustomErrorException;
 import ad.uda.tprats.workitdata.services.TaskService;
 import ad.uda.tprats.workitdata.entities.Task;
 import org.springframework.beans.factory.annotation.Autowired;

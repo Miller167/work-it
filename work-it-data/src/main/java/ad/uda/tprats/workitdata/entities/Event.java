@@ -1,5 +1,7 @@
 package ad.uda.tprats.workitdata.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -35,4 +37,11 @@ public class Event {
     @JoinColumn(name = "project_id")
     //@NotNull(message = "Project is mandatory")  // should it be mandatory???
     private Project project;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    //@JsonIgnoreProperties("createdEvents")
+    @JsonIgnore
+    //@NotNull(message = "Manager is mandatory")
+    private User user;
 }

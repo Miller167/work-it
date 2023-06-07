@@ -1,7 +1,8 @@
-package ad.uda.tprats.workit.workitapi.controllers;
+package ad.uda.tprats.workitapi.controllers;
 
+import ad.uda.tprats.workitapi.payload.LoginRequestDTO;
 import ad.uda.tprats.workitdata.entities.User;
-import ad.uda.tprats.workit.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitapi.helpers.CustomErrorException;
 
 import ad.uda.tprats.workitdata.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/users")
@@ -68,5 +70,26 @@ public class UserController {
             throw new CustomErrorException(e.getMessage());
         }
     }
+
+    @PostMapping("/login")
+    public User authenticateUser(@RequestBody LoginRequestDTO loginRequestDTO) {
+
+        try {
+            User user = userService.getUserByEmail(loginRequestDTO.getEmail());
+            if (user == null) {
+                throw new CustomErrorException("User does not exist");
+            }
+            if (!Objects.equals(loginRequestDTO.getPassword(), user.getPassword())) {
+                throw new CustomErrorException("Incorrect credentials");
+            }
+
+            return user;
+        } catch (Exception e) {
+            throw new CustomErrorException(e.getMessage());
+        }
+    }
+
+
+
 
 }

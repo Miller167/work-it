@@ -28,6 +28,11 @@ public class UserService {
         return userRepository.getById(userId);
     }
 
+    // READ
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     // DELETE
     public void deleteUser(Long userId) {userRepository.deleteById(userId);
     }

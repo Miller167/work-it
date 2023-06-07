@@ -1,7 +1,7 @@
 package ad.uda.tprats.workitdata.services;
 
-import ad.uda.tprats.workitdata.entities.Area;
 import ad.uda.tprats.workitdata.entities.DaysOff;
+import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.repositories.DaysOffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +27,10 @@ public class DaysOffService {
     // READ
     public DaysOff getDaysOffById(Long daysOffId) {
         return daysOffRepository.getById(daysOffId);
+    }
+
+    public List<DaysOff> getDaysOffByUser(User user) {
+        return daysOffRepository.getDaysOffsByUser(user);
     }
 
     // DELETE

@@ -1,8 +1,10 @@
-package ad.uda.tprats.workit.workitapi.controllers;
+package ad.uda.tprats.workitapi.controllers;
 
+import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.services.DaysOffService;
-import ad.uda.tprats.workit.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitapi.helpers.CustomErrorException;
 import ad.uda.tprats.workitdata.entities.DaysOff;
+import ad.uda.tprats.workitdata.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +18,26 @@ public class DaysOffController {
 
     @Autowired
     private DaysOffService daysOffService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping()
     public List<DaysOff> getAllDaysOff() {
         try {
             return daysOffService.getDaysOff();
+        } catch (CustomErrorException e) {
+            throw new CustomErrorException(e.getMessage());
+        }
+    }
+
+    @GetMapping("/userId/{userId}")
+    public List<DaysOff> getDaysOffByUser(@PathVariable Long userId) {
+        try {
+            User user = userService.getUserById(userId);
+            if (user == null) {
+                throw new CustomErrorException("User does not exist");
+            }
+            return daysOffService.getDaysOffByUser(user);
         } catch (CustomErrorException e) {
             throw new CustomErrorException(e.getMessage());
         }

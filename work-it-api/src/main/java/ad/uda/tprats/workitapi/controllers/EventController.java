@@ -1,8 +1,11 @@
-package ad.uda.tprats.workit.workitapi.controllers;
+package ad.uda.tprats.workitapi.controllers;
 
-import ad.uda.tprats.workit.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitdata.entities.Todo;
+import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.services.EventService;
 import ad.uda.tprats.workitdata.entities.Event;
+import ad.uda.tprats.workitdata.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,8 @@ public class EventController {
 
     @Autowired
     private EventService eventService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping()
     public List<Event> getAllEvents() {
@@ -30,6 +35,19 @@ public class EventController {
     public Event getEventById(@PathVariable Long eventId) {
         try {
             return eventService.getEventById(eventId);
+        } catch (CustomErrorException e) {
+            throw new CustomErrorException(e.getMessage());
+        }
+    }
+
+    @GetMapping("/userId/{userId}")
+    public List<Event> getEventsByUserId(@PathVariable Long userId) {
+        try {
+            User user = userService.getUserById(userId);
+            if (user == null) {
+                throw new CustomErrorException("user does not exist");
+            }
+            return eventService.getEventsByUser(user);
         } catch (CustomErrorException e) {
             throw new CustomErrorException(e.getMessage());
         }

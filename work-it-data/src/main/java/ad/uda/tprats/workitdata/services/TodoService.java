@@ -1,8 +1,9 @@
 package ad.uda.tprats.workitdata.services;
 
-import ad.uda.tprats.workitdata.entities.Area;
 import ad.uda.tprats.workitdata.entities.Todo;
+import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.repositories.TodoRepository;
+import ad.uda.tprats.workitdata.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ public class TodoService {
 
     @Autowired
     private TodoRepository todoRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     // CREATE
     public Todo createTodo(Todo todo) {
@@ -29,6 +33,10 @@ public class TodoService {
         return todoRepository.getById(todoId);
     }
 
+
+    public List<Todo> getTodosByUser(User user) {
+        return todoRepository.getTodosByUser(user);
+    }
     // DELETE
     public void deleteTodo(Long todoId) {
         todoRepository.deleteById(todoId);

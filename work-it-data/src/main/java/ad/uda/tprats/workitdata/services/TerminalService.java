@@ -1,6 +1,5 @@
 package ad.uda.tprats.workitdata.services;
 
-import ad.uda.tprats.workitdata.entities.Area;
 import ad.uda.tprats.workitdata.entities.Terminal;
 import ad.uda.tprats.workitdata.repositories.TerminalRepository;
 import org.springframework.beans.factory.annotation.Autowired;

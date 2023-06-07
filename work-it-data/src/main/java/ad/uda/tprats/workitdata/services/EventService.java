@@ -1,6 +1,7 @@
 package ad.uda.tprats.workitdata.services;
 
 import ad.uda.tprats.workitdata.entities.Event;
+import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class EventService {
         return eventRepository.getById(eventId);
     }
 
+    public List<Event> getEventsByUser(User user) {
+        return eventRepository.getEventsByUser(user);
+    }
     // DELETE
     public void deleteEvent(Long eventId) {
         eventRepository.deleteById(eventId);
