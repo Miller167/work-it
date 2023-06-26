@@ -167,7 +167,7 @@ public class ShiftService {
         Date expirationDate = calendar.getTime();*/
 
 
-        if(todaysShift == null){// If there is no saved shift
+        if(todaysShift == null){// If there is no saved shift for today
             WorkPeriod workPeriod = new WorkPeriod();
             /*workPeriod.setRequestCode(generatedString);
             workPeriod.setCodeExpirationDate(expirationDate);*/
@@ -175,7 +175,9 @@ public class ShiftService {
 
             Shift shift = new Shift();
             shift.setUser(user);
+            shift.setStartDatetime(today);
             workPeriod.setShift(shift);
+            workPeriod.setStartDatetime(today);
 
             List<WorkPeriod> workPeriodList = new ArrayList<>();
             workPeriodList.add(workPeriod);
@@ -189,17 +191,19 @@ public class ShiftService {
 
         }else {
             List<WorkPeriod> periods = todaysShift.getWorkPeriods();
-            if(periods.isEmpty() || (periods.get(periods.size()- 1).getEndDatetime() == null)){ //if there are no work periods for today or all of them are finished
+            if(periods.isEmpty() || (periods.get(periods.size()- 1).getEndDatetime() != null)){ //if there are no work periods for today or all of them are finished
                 WorkPeriod workPeriod = new WorkPeriod();
                 /*workPeriod.setRequestCode(generatedString);
                 workPeriod.setCodeExpirationDate(expirationDate);*/
-
+                workPeriod.setStartDatetime(today);
                 todaysShift.getWorkPeriods().add(workPeriod);
+                workPeriod.setShift(todaysShift);
                 shiftRepository.save(todaysShift);
                 workPeriodRepository.save(workPeriod);
 
             }else{//if there are work periods and one left to end
                 WorkPeriod workPeriod = periods.get(periods.size()- 1);
+                workPeriod.setEndDatetime(today);
                 /*workPeriod.setRequestCode(generatedString);
                 workPeriod.setCodeExpirationDate(expirationDate);*/
                 workPeriodRepository.save(workPeriod);

@@ -1,4 +1,4 @@
-package ad.uda.tprats.workit.common;
+package ad.uda.tprats.common;
 
 public class Constants {
 

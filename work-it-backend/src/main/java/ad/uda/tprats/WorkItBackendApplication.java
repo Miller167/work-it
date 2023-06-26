@@ -1,4 +1,4 @@
-package ad.uda.tprats.workit;
+package ad.uda.tprats;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.jpa.datatables.repository.DataTablesRepositoryFactoryBean;
 
 @SpringBootApplication
-@EnableJpaRepositories(repositoryFactoryBeanClass = DataTablesRepositoryFactoryBean.class, basePackages={"ad.uda.tprats.workitdata.re", "ad.uda.tprats.workitbackend.repositories"})
-@ComponentScan(basePackages = { "ad.uda.tprats.workitdata","ad.uda.tprats.workitbackend" })
+@EnableJpaRepositories(repositoryFactoryBeanClass = DataTablesRepositoryFactoryBean.class, basePackages={"ad.uda.tprats.workitdata.repositories", "ad.uda.tprats.backend.repositories"})
+@ComponentScan(basePackages = { "ad.uda.tprats.workitdata","ad.uda.tprats.backend" })
 @EntityScan(basePackages = "ad.uda.tprats.workitdata.entities")
 public class WorkItBackendApplication {
     public static void main(String[] args) {

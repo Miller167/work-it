@@ -1,6 +1,5 @@
-package ad.govern.aaninspections.backend.config;
+package ad.uda.tprats.backend.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,8 +12,6 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -51,7 +48,7 @@ public class SecurityConfig {
         // ensure the passwords are encoded properly
         UserBuilder users = User.withDefaultPasswordEncoder();
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(users.username("asae").password("asae2023").roles("ADMIN").build());
+        manager.createUser(users.username("admin").password("admin").roles("ADMIN").build());
         return manager;
     }
 

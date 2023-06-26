@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout/layout}">
+
+<head layout:fragment="header">
+
+	<title th:text="Statistics"></title>
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<!--<div id="chart1" style="width:80%; height:400px;"></div>-->
+		<!--<div id="chartContainer"><canvas id="chart1"></canvas></div>-->
+
+		<!--<div><canvas id="chart2"></canvas></div>-->
+
+		<div class="row justify-content-center mt-5">
+			<div class="col-lg-6">
+				<div class="card">
+					<div class="card-header">
+						Hours per project
+					</div>
+					<div class="card-body">
+						<canvas id="chart1"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center mt-5">
+			<div class="col-lg-6">
+				<div class="card">
+					<div class="card-header">
+						Events per user in Project 1
+					</div>
+					<div class="card-body">
+						<canvas id="chart2"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div layout:fragment="additional-scripts">
+		<script th:src="@{/js/common.js}"></script>
+		<script th:src="@{/js/statistics/stats.js}"></script>
+	</div>
+
+</body>
+

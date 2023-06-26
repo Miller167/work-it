@@ -1,10 +1,13 @@
 package ad.uda.tprats.workitapi.controllers;
 
 import ad.uda.tprats.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitdata.dtos.EventDTO;
+import ad.uda.tprats.workitdata.entities.Project;
 import ad.uda.tprats.workitdata.entities.Todo;
 import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.services.EventService;
 import ad.uda.tprats.workitdata.entities.Event;
+import ad.uda.tprats.workitdata.services.ProjectService;
 import ad.uda.tprats.workitdata.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +22,9 @@ public class EventController {
 
     @Autowired
     private EventService eventService;
+
+    @Autowired
+    private ProjectService projectService;
     @Autowired
     private UserService userService;
 
@@ -54,7 +60,7 @@ public class EventController {
     }
 
     @PostMapping()
-    public Event createEvent(@RequestBody Event event) {
+    public Event createEvent(@RequestBody EventDTO event) {
         try {
             return eventService.createEvent(event);
         } catch (CustomErrorException e) {
@@ -63,7 +69,7 @@ public class EventController {
     }
 
     @PutMapping("/{eventId}")
-    public ResponseEntity<Event> updateEvent(@PathVariable Long eventId, @RequestBody Event event) {
+    public ResponseEntity<Event> updateEvent(@PathVariable Long eventId, @RequestBody EventDTO event) {
         try {
             return ResponseEntity.ok(eventService.updateEvent(eventId, event));
         } catch (CustomErrorException e) {

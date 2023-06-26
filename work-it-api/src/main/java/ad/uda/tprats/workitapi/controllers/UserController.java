@@ -5,6 +5,8 @@ import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitapi.helpers.CustomErrorException;
 
 import ad.uda.tprats.workitdata.services.UserService;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/users")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class UserController {
 
     @Autowired

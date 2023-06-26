@@ -1,0 +1,43 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout/list-layout}">
+
+<head layout:fragment="header">
+	<title th:text="Shift"></title>
+</head>
+<body>
+	<div layout:fragment="content-buscador">
+		<form id="formCercar">
+			<div class="row">
+				<div class="col-sm-5">
+					<div class="input-group">
+						<label class="width_100" th:text="Shift"></label>
+						<input type="date" id="startDatetime"
+							class="form-control form-control-sm">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div layout:fragment="content-llistat">
+		<table id="tableLlistat"
+			class="table table-bordered table-striped dataTable">
+			<thead>
+				<tr>
+					<th th:text="user" class="col-4"></th>
+					<th th:text="start" class="col-4"></th>
+					<th th:text="end" class="col-4"></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	
+	<div layout:fragment="additional-scripts">
+		<script th:src="@{/js/common.js}"></script>
+		<script th:src="@{/js/shift/shift-list.js}"></script>
+	</div>
+
+</body>
+

@@ -28,6 +28,10 @@ public class UserService {
         return userRepository.getById(userId);
     }
 
+    public User getUserByUid(String uid) {
+        return userRepository.findByUid(uid);
+    }
+
     // READ
     public User getUserByEmail(String email) {
         return userRepository.findByEmail(email);
@@ -43,6 +47,7 @@ public class UserService {
         user.setFullName(userDetails.getFullName());
         user.setEmail(userDetails.getEmail());
         user.setAdministrator(userDetails.isAdministrator());
+        user.setUid(userDetails.getUid());
 
         return userRepository.save(user);
     }

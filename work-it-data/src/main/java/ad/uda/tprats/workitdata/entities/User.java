@@ -3,6 +3,7 @@ package ad.uda.tprats.workitdata.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,27 +12,31 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 @Data
+@ToString
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "full_name", nullable = false)
+    @Column(name = "uid")
+    private String uid;
+
+    @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "administrator", nullable = false)
+    @Column(name = "administrator")
     private boolean administrator;
 
-    @Column(name = "total_days_off", nullable = false)
+    @Column(name = "total_days_off")
     private double totalDaysOff;
 
     @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)

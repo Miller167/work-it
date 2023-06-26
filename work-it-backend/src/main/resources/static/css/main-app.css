@@ -1,0 +1,277 @@
+.content-wrapper{
+    /*min-height: 100% !important; !* Fix height https://stackoverflow.com/questions/58498518/html-css-adminlte-content-wrapper-min-height-causes-side-bar-to-appeared *!*/
+}
+
+input[type='file'] {
+    display: none;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 140px;
+}
+
+/*********** APP HEADER *************/
+.header-image {
+    display: inline-block;
+}
+
+.header-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white !important;
+    text-align: center;
+}
+
+.header-image .overlay h1 {
+    display: inline-block;
+}
+
+.header-image .overlay h6 {
+    display: inline-block;
+    margin-right: 8%;
+}
+
+.header-image .overlay a {
+    color: white !important;
+}
+
+.navbar-title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-responsive {
+    font-size: calc(100% + 1vw + 1vh);
+}
+
+.header {
+    background-color: #f8f8f8;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header-title {
+    margin-left: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.header-logo {
+    height: 150px;
+    width: 300px;
+}
+
+.header-logout{
+    position: absolute;
+    padding: 10px;
+    display: flex;
+    right: 10px;
+}
+
+.header-custom{
+    color: #E0AFA0;
+}
+/*********** LOGIN PAGE *************/
+.login-page-custom {
+    background: rgb(218, 218, 218);
+    background: linear-gradient(270deg, rgba(218, 218, 218, 1) 12%, rgba(233, 236, 239, 0) 100%);
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height:90vh;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.logo-login {
+    margin-bottom: 1.8em;
+    text-align: center;
+}
+
+.h1-login {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.login-box {
+    width: 425px;
+}
+
+.footer-login {
+    margin-top: 1.8em;
+    font-size: small;
+}
+
+.container-fluid-custom {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    position:absolute;
+    bottom: 0;
+}
+
+.wave-login{
+    width: 100%;
+    height: 150px;
+}
+
+/*Nav bar - User position*/
+.ml-auto-custom {
+    margin-left: auto !important;
+    margin-right: 7.3%;
+}
+
+
+/*Nav bar - menu position*/
+.mb-1, .my-1 {
+    margin-bottom: .25rem !important;
+    margin-left: 5.5%;
+}
+
+
+/*Logout button position*/
+.header-image .overlay h6 {
+    display: inline-block;
+    margin-right: 10.2%;
+}
+
+/*Icons button search card*/
+.fa, .far, .fas {
+    margin: 3px 6px 0px 0px;
+}
+
+.fab, .far {
+    font-weight: 900;
+}
+
+
+/*---Theme color configuration---*/
+/*Search Buttons - all pages*/
+.btn-info-custom {
+    color: #fff;
+    background-color: #E0AFA0;
+    /*border-color: #463F3A;*/
+    box-shadow: none;
+}
+
+.btn-info-custom:hover {
+    color: #fff;
+    background-color: #E0AFA0;
+    /*border-color: #463F3A;*/
+}
+
+.btn-info-custom:focus, .btn-info-custom.focus {
+    color: #fff;
+    background-color: #E0AFA0;
+    /*border-color: #463F3A;*/
+    box-shadow: 0 0 0 0 rgba(224, 175, 160, 0.5);
+}
+
+.btn-info-custom.disabled, .btn-info-custom:disabled {
+    color: #fff;
+    background-color: #E0AFA0;
+    /*border-color: #463F3A;*/
+}
+
+.btn-info-custom:not(:disabled):not(.disabled):active, .btn-info-custom:not(:disabled):not(.disabled).active,
+.show > .btn-info-custom.dropdown-toggle {
+    color: #fff;
+    background-color: #E0AFA0;
+   /* border-color: #463F3A;*/
+}
+
+.btn-info-custom:not(:disabled):not(.disabled):active:focus, .btn-info-custom:not(:disabled):not(.disabled).active:focus,
+.show > .btn-info-custom.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0 rgba(224, 175, 160, 0.5);
+}
+
+
+/*Pagination Buttons - all pages*/
+.accent-info .page-item.active .page-link, .accent-info .page-item.active a {
+    background-color: #E0AFA0;
+    border-color: #E0AFA0;
+    color: #fff;
+}
+
+
+/*Card Info color label - all pages*/
+.card-info:not(.card-outline) .card-header {
+    background-color: #E0AFA0;
+}
+
+.card-info.card-outline-tabs > .card-header a.active {
+    border-top: 3px solid #E0AFA0;
+}
+
+
+/*Card info outline color*/
+.callout.callout-info-custom {
+    border-left-color: #E0AFA0;
+}
+
+
+/*Line decoration on active tab - all pages*/
+.card-primary.card-outline {
+    border-top: 3px solid #E0AFA0;
+}
+
+
+/*Button search on alerts detail page*/
+.btn-primary {
+    color: #fff;
+    background-color: #E0AFA0;
+    border-color: #E0AFA0;
+    box-shadow: none;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #463F3A;
+    border-color: #463F3A;
+}
+
+
+/*Folders in person groups page*/
+.text-info {
+    color: #E0AFA0 !important;
+}
+
+
+/*Line decoration on sending list page*/
+.card-info.card-outline {
+    border-top: 3px solid #E0AFA0;
+}
+
+
+/*Color text person group page*/
+.accent-info .btn-link, .accent-info .nav-tabs .nav-link, .accent-info a:not(.dropdown-item):not(.btn-app):not(.nav-link):not(.brand-link):not(.page-link):not(.btn) {
+    color: #E0AFA0;
+}
+
+
+/*Space between icon and text menú*/
+.main-header.text-sm .nav-link > .fa, .main-header.text-sm .nav-link > .fab, .main-header.text-sm .nav-link > .fad, .main-header.text-sm .nav-link > .fal, .main-header.text-sm .nav-link > .far, .main-header.text-sm .nav-link > .fas, .main-header.text-sm .nav-link > .ion, .main-header.text-sm .nav-link > .svg-inline--fa, .text-sm .main-header .nav-link > .fa, .text-sm .main-header .nav-link > .fab, .text-sm .main-header .nav-link > .fad, .text-sm .main-header .nav-link > .fal, .text-sm .main-header .nav-link > .far, .text-sm .main-header .nav-link > .fas, .text-sm .main-header .nav-link > .ion, .text-sm .main-header .nav-link > .svg-inline--fa {
+    font-size: 0.875rem;
+    margin: 3px;
+}
+
+.icon-red {
+    color: red !important;
+}
+
+.icon-orange {
+    color: #FF8C00 !important;
+}
+

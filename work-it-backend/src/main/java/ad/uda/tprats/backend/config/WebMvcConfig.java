@@ -1,4 +1,4 @@
-package ad.uda.tprats.workit.backend.config;
+package ad.uda.tprats.backend.config;
 
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -8,15 +8,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    /*@Override
+    @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-    }*/
-    /*@Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
-        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-    }*/
-
+    }
 }

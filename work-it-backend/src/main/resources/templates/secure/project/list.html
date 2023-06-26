@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout/list-layout}">
+
+<head layout:fragment="header">
+	<title th:text="Project"></title>
+</head>
+<body>
+	<div layout:fragment="content-buscador">
+		<form id="formCercar">
+			<div class="row">
+				<div class="col-sm-5">
+					<div class="input-group">
+						<label class="width_100" th:text="Title"></label>
+						<input type="text" id="title"
+							class="form-control form-control-sm" placeholder="Title...">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div layout:fragment="content-botons">
+		<button class="btn btn-default float-right margin_right_20 nou">
+			<i class="fas fa-plus"></i><span th:text="Nou"></span>
+		</button>
+		<button class="btn btn-default float-right margin_right_5 modificar">
+			<i class="fas fa-edit"></i><span th:text="Modificar"></span>
+		</button>
+		<button class="btn btn-danger float-right margin_right_5 suprimir">
+			<i class="far fa-trash-alt"></i><span th:text="Suprimir"></span>
+		</button>
+	</div>
+	<div layout:fragment="content-llistat">
+		<table id="tableLlistat"
+			class="table table-bordered table-striped dataTable">
+			<thead>
+				<tr>
+					<th th:text="id" class="col-1"></th>
+					<th th:text="title" class="col-2"></th>
+					<th th:text="descripcio" class="col-4"></th>
+					<th th:text="estimatedHours" class="col-2"></th>
+					<th th:text="totalHours" class="col-2"></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	
+	<div layout:fragment="additional-scripts">
+		<script th:src="@{/js/common.js}"></script>
+		<script th:src="@{/js/project/project-list.js}"></script>
+	</div>
+
+</body>
+

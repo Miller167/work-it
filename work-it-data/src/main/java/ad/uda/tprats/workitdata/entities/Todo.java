@@ -22,7 +22,7 @@ public class Todo {
 
     @Column(name = "is_checked")
     @NotNull(message = "isChecked is mandatory")
-    private boolean isChecked;
+    private boolean checked;
 
     @Column(name = "creation_datetime")
     //@NotNull(message = "Creation time is mandatory")

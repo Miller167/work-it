@@ -1,6 +1,7 @@
 package ad.uda.tprats.workitapi.controllers;
 
 import ad.uda.tprats.workitapi.helpers.CustomErrorException;
+import ad.uda.tprats.workitdata.dtos.TodoDTO;
 import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.services.TodoService;
 import ad.uda.tprats.workitdata.entities.Todo;
@@ -53,16 +54,16 @@ public class TodoController {
     }
 
     @PostMapping()
-    public Todo createTodo(@RequestBody Todo todo) {
+    public Todo createTodo(@RequestBody TodoDTO todoDTO) {
         try {
-            return todoService.createTodo(todo);
+            return todoService.setTodoFromTodoDTO(todoDTO);
         } catch (CustomErrorException e) {
             throw new CustomErrorException(e.getMessage());
         }
     }
 
     @PutMapping("/{todoId}")
-    public ResponseEntity<Todo> updateTodo(@PathVariable Long todoId, @RequestBody Todo todo) {
+    public ResponseEntity<Todo> updateTodo(@PathVariable Long todoId, @RequestBody TodoDTO todo) {
         try {
             return ResponseEntity.ok(todoService.updateTodo(todoId, todo));
         } catch (CustomErrorException e) {

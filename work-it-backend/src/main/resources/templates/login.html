@@ -5,8 +5,13 @@
     <title>Inicia sessió</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+   <!-- <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}"/>
     <!-- icheck bootstrap -->
@@ -18,25 +23,20 @@
 
 </head>
 <body class="hold-transition login-page-custom">
-<!-- App Logo -->
-<div class="logo-login">
-    <img th:src="@{/img/logogovern-07.png}" alt="Logo Govern" style="width: 55%;"/>
-</div>
-<!-- /.App Logo -->
 
 <div class="login-box">
     <!-- /.login-logo -->
     <div class="card card-outline card-info">
         <div class="card-header text-center">
-            <h1 class="h1-login">AAN Inspeccions</h1>
+            <h1 class="h1-login">Work It</h1>
         </div>
         <div class="card-body">
-            <p class="login-box-msg">Introdueixi el seu usuari i contrasenya</p>
+            <p class="login-box-msg">Please, input your credentials</p>
 
             <form th:action="@{/login}" method="POST">
                 <div class="input-group mb-3">
                     <input id="username" name="username" type="text" class="form-control"
-                           th:classAppend="${param.error != null ? 'is-invalid' : ''}" placeholder="Usuari">
+                           th:classAppend="${param.error != null ? 'is-invalid' : ''}" placeholder="Username">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fa fa-user"></span>
@@ -56,14 +56,13 @@
 
                     <!-- /.col -->
                     <div class="col-4"><span class="float-right"></span></div>
-                    <button type="submit" class="btn btn-info-custom btn-block"><span>Accedir</span>
+                    <button type="submit" class="btn btn-info-custom btn-block"><span>Access</span>
                     </button>
                 </div>
 
                 <div th:if="${param.error != null}" class="card card-danger mt-3">
                     <div class="card-header">
-                        <h4 class="card-title" style="text-align:center; float: initial;"> Les dades introduïdes són
-                            incorrectes</h4>
+                        <h4 class="card-title" style="text-align:center; float: initial;"> Incorrect credentials</h4>
                     </div>
                 </div>
 
@@ -74,15 +73,6 @@
 </div><!-- /.card -->
 
 <!-- /.login-box -->
-<!-- Footer login -->
-<div class="footer-login">
-    <p>@2022, Govern d'Andorra</p>
-    <p style="font-size: 12px; text-align:center;">Versió 1.0.0</p>
-</div>
-<div class="container-fluid-custom">
-    <img th:src="@{/img/wave.svg}" alt="Decoració footer" class="wave-login"/>
-</div>
-<!-- /.Footer login -->
 
 <!-- jQuery -->
 <script th:href="@{/plugins/jquery/jquery.min.js}"></script>

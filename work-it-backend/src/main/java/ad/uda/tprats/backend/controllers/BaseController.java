@@ -1,4 +1,4 @@
-package ad.uda.tprats.workit.backend.controllers;
+package ad.uda.tprats.backend.controllers;
 
 import org.springframework.stereotype.Controller;
 

@@ -1,5 +1,6 @@
 package ad.uda.tprats.workitdata.services;
 
+import ad.uda.tprats.workitdata.dtos.TodoDTO;
 import ad.uda.tprats.workitdata.entities.Todo;
 import ad.uda.tprats.workitdata.entities.User;
 import ad.uda.tprats.workitdata.repositories.TodoRepository;
@@ -20,6 +21,7 @@ public class TodoService {
 
     // CREATE
     public Todo createTodo(Todo todo) {
+
         return todoRepository.save(todo);
     }
 
@@ -43,12 +45,23 @@ public class TodoService {
     }
 
     // UPDATE
-    public Todo updateTodo(Long todoId, Todo details) {
+    public Todo updateTodo(Long todoId, TodoDTO details) {
+        User user = userRepository.getById(details.getUser());
         Todo todo = todoRepository.findById(todoId).get();
         todo.setTitle(details.getTitle());
         todo.setChecked(details.isChecked());
         todo.setCreationDateTime(details.getCreationDateTime());
-        todo.setUser(details.getUser());
+        todo.setUser(user);
+        return todoRepository.save(todo);
+    }
+
+    public Todo setTodoFromTodoDTO(TodoDTO details) {
+        User user = userRepository.getById(details.getUser());
+        Todo todo = new Todo();
+        todo.setTitle(details.getTitle());
+        todo.setChecked(details.isChecked());
+        todo.setCreationDateTime(details.getCreationDateTime());
+        todo.setUser(user);
         return todoRepository.save(todo);
     }
 }

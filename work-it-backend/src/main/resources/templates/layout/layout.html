@@ -19,30 +19,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<div class="wrapper">
 
 		<!-- HEADER -->
-		<header>
-			<div class="header-image" id="header-image">
-				<img th:src="@{/img/header.jpg}" class="img-fluid"
-					alt="Fons de capcelera montanyes d'Andorra">
-				<div class="overlay mt-5">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-3 col-sm-2">
-								<img th:src="@{/img/logo-simplificat-12.svg}" class="rounded"
-									alt="Logo Govern d'Andorra" style="width: 55px">
-							</div>
-							<div class="col-6 col-sm-8 navbar-title-container">
-								<h1 class="text-responsive">ASAE</h1>
-							</div>
-							<div class="col-3 col-sm-2">
-								<h6>
-									<a th:href="@{/logout}" href="/logout" role="button"><i
-										class="fas fa-sign-out-alt"></i><span>Tancar sessió</span></a>
-								</h6>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+		<header class="header">
+			<img th:src="@{/img/logo_v2.png}" alt="Logo" class="header-logo">
+			<!--<h1 class="header-title">Work It</h1>-->
+			<h6>
+				<a th:href="@{/logout}" href="/logout" role="button" class="header-logout"><i
+								class="fas fa-sign-out-alt header-custom"></i><span class="header-custom">Log out</span></a>
+			</h6>
 		</header>
 		<!-- /HEADER -->
 		<!-- Navbar -->
@@ -52,26 +35,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<!-- Left navbar links -->
 			<ul class="navbar-nav mb-1 mt-1 col-11">
 				<li class="nav-item d-none d-sm-inline-block"><a
-					th:href="@{/secure/bopa}" class="nav-link"> <i
-						class="fa fa-book"></i><span th:text="Bopa"></span>
+					th:href="@{/secure/user}" class="nav-link"> <i
+						class="fa fa-user"></i><span th:text="User"></span>
 				</a></li>
 				<li class="nav-item d-none d-sm-inline-block"><a
-					th:href="@{/secure/normativa}" class="nav-link"> <i
-						class="fa fa-book"></i><span th:text="Normatives"></span>
+					th:href="@{/secure/project}" class="nav-link"> <i
+						class="fa-solid fa-bars-progress"></i><span th:text="Project"></span>
 				</a></li>
 				<li class="nav-item d-none d-sm-inline-block"><a
-					th:href="@{/secure/guiaPunt}" class="nav-link"> <i
-						class="fa fa-book"></i><span th:text="Guia"></span>
+					th:href="@{/secure/shift}" class="nav-link"> <i
+						class="fa fa-clock"></i><span th:text="Shifts"></span>
 				</a></li>
 				<li class="nav-item d-none d-sm-inline-block"><a
-					th:href="@{/secure/questionarisRisc}" class="nav-link"> <i
-						class="nav-icon fa fa-question"></i><span
-						th:utext="'Questionaris de risc'"></span>
+						th:href="@{/secure/settings}" class="nav-link"> <i
+						class="fa fa-wrench"></i><span th:text="Settings"></span>
 				</a></li>
 				<li class="nav-item d-none d-sm-inline-block"><a
-					th:href="@{/secure/inspectorCodi}" class="nav-link"> <i
-						class="nav-icon fa fa-user"></i><span
-						th:utext="'Inspectors'"></span>
+						th:href="@{/secure/statistics}" class="nav-link"> <i
+						class="fa fa-chart-pie"></i><span th:text="Statistics"></span>
 				</a></li>
 			</ul>
 

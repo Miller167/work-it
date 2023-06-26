@@ -84,10 +84,10 @@ public class ShiftController {
         }
     }*/
 
-    @GetMapping("/request/{userId}")
-    public ResponseEntity<?> request(@PathVariable Long userId) {
+    @GetMapping("/request/{uid}")
+    public ResponseEntity<?> request(@PathVariable String uid) {
         try {
-            User user = userService.getUserById(userId);
+            User user = userService.getUserByUid(uid);
             if (user == null) {
                 throw new CustomErrorException("User does not exist");
             }
